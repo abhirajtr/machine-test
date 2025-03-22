@@ -1,0 +1,49 @@
+{
+  "COMMON": {},
+  "BREADCRUMBS": {
+    "LABEL_HOME": "Startseite",
+    "LABEL_USERS": "Benutzer"
+  },
+  "SIDE_MENU": {
+    "GROUP_TITLE_DASHBOARD": "ARMATURENBRETT",
+    "MENU_HOME": "Startseite",
+    "MENU_USERS": "Benutzer",
+    "MENU_JOBS": "Jobs",
+    "MENU_CANDIDATES": "Kandidaten"
+  },
+  "NAV_BAR": {
+    "TOOLTIP_OPEN": "Öffnen",
+    "TOOLTIP_CLOSE": "Schließen",
+    "ICON_SETTINGS": "Einstellungen",
+    "ICON_NOTIFICATION": "Benachrichtigung",
+    "ICON_MESSAGES": "Nachrichten",
+    "USER_PROFILE_LIST": {
+      "WELCOME_TITLE": "Willkommen Benutzer",
+      "LABEL_PROFILE": "Profil",
+      "LABEL_HELP": "Helfen",
+      "LABEL_SETTINGS": "Einstellungen",
+      "LABEL_LOGOUT": "Abmelden"
+    }
+  },
+  "HOME_PAGE": {
+    "HEADER_TITLE": "Startseite"
+  },
+  "USERS_PAGE": {
+    "HEADER_TITLE": "Benutzerliste",
+    "TAB_LABEL_ALL": "Alle",
+    "TAB_LABEL_ACTIVE": "Aktiv",
+    "TAB_LABEL_PENDING": "Ausstehend",
+    "TAB_LABEL_REJECTED": "Abgelehnt",
+    "USERS_LIST": {
+      "COLUMN_LABEL_ID": "Ausweis",
+      "COLUMN_LABEL_CUSTOMER_NAME": "Kundenname",
+      "COLUMN_LABEL_ROLE": "Rolle",
+      "COLUMN_LABEL_COMPANY_VENDER": "Firmenanbieter",
+      "COLUMN_LABEL_LAST_LOGIN": "Letzter Login",
+      "COLUMN_LABEL_STATUS": "Status",
+      "COLUMN_LABEL_ACTION": "Aktion",
+      "SEARCH_PLACEHOLDER": "Kunden suchen",
+      "CREATE_BTN_LABEL": "Benutzer hinzufügen"
+    }
+  }
+}

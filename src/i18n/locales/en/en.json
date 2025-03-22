@@ -1,0 +1,49 @@
+{
+  "COMMON": {},
+  "BREADCRUMBS": {
+    "LABEL_HOME": "Home",
+    "LABEL_USERS": "Users"
+  },
+  "SIDE_MENU": {
+    "GROUP_TITLE_DASHBOARD": "DASHBOARD",
+    "MENU_HOME": "Home",
+    "MENU_USERS": "Users",
+    "MENU_JOBS": "Jobs",
+    "MENU_CANDIDATES": "Candidates"
+  },
+  "NAV_BAR": {
+    "TOOLTIP_OPEN": "Open",
+    "TOOLTIP_CLOSE": "Close",
+    "ICON_SETTINGS": "Settings",
+    "ICON_NOTIFICATION": "Notification",
+    "ICON_MESSAGES": "Messages",
+    "USER_PROFILE_LIST": {
+      "WELCOME_TITLE": "Welcome User",
+      "LABEL_PROFILE": "Profile",
+      "LABEL_HELP": "HELP",
+      "LABEL_SETTINGS": "Settings",
+      "LABEL_LOGOUT": "Logout"
+    }
+  },
+  "HOME_PAGE": {
+    "HEADER_TITLE": "Home"
+  },
+  "USERS_PAGE": {
+    "HEADER_TITLE": "User List",
+    "TAB_LABEL_ALL": "All",
+    "TAB_LABEL_ACTIVE": "Active",
+    "TAB_LABEL_PENDING": "Pending",
+    "TAB_LABEL_REJECTED": "Rejected",
+    "USERS_LIST": {
+      "COLUMN_LABEL_ID": "ID",
+      "COLUMN_LABEL_CUSTOMER_NAME": "Customer Name",
+      "COLUMN_LABEL_ROLE": "Role",
+      "COLUMN_LABEL_COMPANY_VENDER": "Company Vender",
+      "COLUMN_LABEL_LAST_LOGIN": "Last Login",
+      "COLUMN_LABEL_STATUS": "Status",
+      "COLUMN_LABEL_ACTION": "Action",
+      "SEARCH_PLACEHOLDER": "Search customer",
+      "CREATE_BTN_LABEL": "Add User"
+    }
+  }
+}

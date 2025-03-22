@@ -1,0 +1,3 @@
+export const SESSION_STORAGE = {
+  I18N_LANGUAGE: "I18N_LANGUAGE"
+};
