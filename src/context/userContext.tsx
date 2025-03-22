@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
 
 interface User {
     firstName: string;
@@ -57,6 +58,7 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
         setUser(registeredUser);
         localStorage.setItem('user', JSON.stringify(registeredUser));
         console.log('Registered User:', registeredUser);
+        toast.success('User registered successfully!');
         navigate('/');
     };
 
@@ -67,18 +69,21 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
             const parsedUser: User = JSON.parse(savedUser);
             if (parsedUser.email === email && parsedUser.password === password) {
                 setUser({ ...parsedUser, isAuthenticated: true });
+                toast.success('User logged in successfully!');
                 navigate('/');
                 return true;
             }
         }
+        toast.error('Invalid email or password!');
         return false; // Login failed
     };
 
-    // Logout function to clear user data
+    // Logout function
     const logout = () => {
         // setUser(null);
         setUser((prevUser) => ({ ...prevUser!, isAuthenticated: false }));
         localStorage.removeItem('user');
+        toast.success('User logged out successfully!');
         navigate('/login');
         console.log('User logged out.');
     };
