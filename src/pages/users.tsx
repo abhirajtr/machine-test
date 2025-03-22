@@ -3,6 +3,7 @@ import { Badge, Button, Card, Checkbox, Table, Tabs, Modal, Select, Tag } from "
 import TabPane from "antd/es/tabs/TabPane";
 import UserFilter from "@src/components/userFilter";
 import { useState } from "react";
+import users from "@src/data/users.json";
 
 const { Option } = Select;
 
@@ -46,58 +47,26 @@ const Users = () => {
     },
   ];
 
-  const data = [
-    {
-      key: "1",
-      name: "Lola Barr",
-      email: "lolabarr@microsoft.ai",
-      phone: "+1-212-456-7890",
-      role: "Admin",
-      status: "Active",
-      createdOn: "20-12-2024",
-      lastActive: "20-12-2024",
-    },
-    {
-      key: "2",
-      name: "Everest Glenn",
-      email: "everestglenn@microsoft.ai",
-      phone: "+1-212-456-7890",
-      role: "Manager",
-      status: "Active",
-      createdOn: "20-12-2024",
-      lastActive: "20-12-2024",
-    },
-    {
-      key: "3",
-      name: "Rosie Hendrix",
-      email: "rhendrix@microsoft.ai",
-      phone: "+1-212-456-7890",
-      role: "Recruiter",
-      status: "Active",
-      createdOn: "20-12-2024",
-      lastActive: "20-12-2024",
-    },
-  ];
 
   const showInviteModal = () => setInviteModalVisible(true);
   const closeInviteModal = () => setInviteModalVisible(false);
-  
+
   // Handle adding a new row for invitation
   const addNewRow = () => {
     const newId = userRows.length > 0 ? Math.max(...userRows.map(row => row.id)) + 1 : 1;
     setUserRows([...userRows, { id: newId, emails: [], role: "" }]);
   };
-  
+
   // Handle email changes for a specific row
   const handleEmailChange = (rowId: number, emails: string[]) => {
-    setUserRows(userRows.map(row => 
+    setUserRows(userRows.map(row =>
       row.id === rowId ? { ...row, emails } : row
     ));
   };
-  
+
   // Handle role changes for a specific row
   const handleRoleChange = (rowId: number, role: string) => {
-    setUserRows(userRows.map(row => 
+    setUserRows(userRows.map(row =>
       row.id === rowId ? { ...row, role } : row
     ));
   };
@@ -115,7 +84,7 @@ const Users = () => {
                 INVITE USERS
               </Button>
             </div>
-            <Table columns={columns} dataSource={data} pagination={false} />
+            <Table columns={columns} dataSource={users} pagination={false} />
           </TabPane>
           <TabPane tab="Pending" key="2">
             <p>No pending users</p>
@@ -123,10 +92,10 @@ const Users = () => {
         </Tabs>
       </Card>
 
-      <Modal 
-        title="Invite Users" 
-        open={inviteModalVisible} 
-        onCancel={closeInviteModal} 
+      <Modal
+        title="Invite Users"
+        open={inviteModalVisible}
+        onCancel={closeInviteModal}
         footer={null}
         width={650}
       >
@@ -147,11 +116,11 @@ const Users = () => {
                     tagRender={(props) => {
                       const { label, closable, onClose } = props;
                       return (
-                        <Tag 
+                        <Tag
                           closable={closable}
                           onClose={onClose}
-                          style={{ 
-                            marginRight: 3, 
+                          style={{
+                            marginRight: 3,
                             backgroundColor: '#f0f0f0',
                             borderRadius: 4,
                             padding: '2px 8px',
@@ -182,21 +151,21 @@ const Users = () => {
               </div>
             </div>
           ))}
-          
-          <Button 
-            type="link" 
-            onClick={addNewRow} 
+
+          <Button
+            type="link"
+            onClick={addNewRow}
             style={{ padding: 0, color: '#1890ff' }}
             className="mt-2 mb-4"
           >
             ADD NEW
           </Button>
-          
+
           <div className="flex border-t pt-4 mt-2">
-            <Button 
-              type="primary" 
+            <Button
+              type="primary"
               className="mr-2"
-              style={{ 
+              style={{
                 backgroundColor: '#1890ff',
                 borderColor: '#1890ff'
               }}

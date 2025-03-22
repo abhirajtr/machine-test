@@ -3,11 +3,13 @@ import { Button, Form, FormProps, Input } from 'antd';
 import { Link } from "react-router-dom";
 import AuthLayoutSide from "@src/components/authLayoutSide";
 import SocialAuthSection from "@src/components/socialAuthSection";
+import { useUserContext } from "@src/context/userContext";
 
 type FieldType = {
-    first_name: string;
-    last_name: string;
-    email_address: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
     password: string;
 }
 
@@ -15,9 +17,11 @@ type FieldType = {
 const Signup = () => {
 
     const [form] = Form.useForm();
+    const { signup } = useUserContext();
 
     const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
         console.log('Success:', values);
+        signup(values);
     };
 
     return (
@@ -31,7 +35,7 @@ const Signup = () => {
                         onFinish={onFinish}
                         className="space-y-4">
                         <Form.Item
-                            name="first_name"
+                            name="firstName"
                             rules={[
                                 { required: true, message: 'First name is required!' },
                                 { pattern: /^[A-Za-z]+$/, message: 'First name should contain only alphabets!' },
@@ -41,7 +45,7 @@ const Signup = () => {
                         </Form.Item>
 
                         <Form.Item
-                            name="last_name"
+                            name="lastName"
                             rules={[
                                 { required: true, message: 'Last name is required!' },
                                 { pattern: /^[A-Za-z]+$/, message: 'Last name should contain only alphabets!' },
@@ -49,15 +53,26 @@ const Signup = () => {
                         >
                             <Input className="w-full px-4 py-3 rounded-lg" placeholder="Last Name" />
                         </Form.Item>
-
                         <Form.Item
-                            name="email_address"
+                            name="email"
                             rules={[
                                 { required: true, message: 'Email address is required!' },
                                 { type: 'email', message: 'Please enter a valid email address!' },
                             ]}
                         >
                             <Input className="w-full px-4 py-3 rounded-lg" placeholder="Email Address" />
+                        </Form.Item>
+                        <Form.Item
+                            name="phone"
+                            rules={[
+                                { required: true, message: 'Phone number is required!' },
+                                {
+                                    pattern: /^[0-9]{10}$/,
+                                    message: 'Please enter a valid 10-digit phone number!',
+                                },
+                            ]}
+                        >
+                            <Input className="w-full px-4 py-3 rounded-lg" placeholder="Phone Number" />
                         </Form.Item>
 
                         <Form.Item
@@ -94,7 +109,7 @@ const Signup = () => {
                     </div>
                     <SocialAuthSection />
                     <p>Already a customer?{" "}
-                        <Link to="/login" className="font-semibold">Sign in</Link>
+                        <Link to="/login" className="font-semibold hover:underline">Sign in</Link>
                     </p>
                 </div>
             </div>

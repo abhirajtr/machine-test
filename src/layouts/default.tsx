@@ -2,13 +2,14 @@ import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from "@ant-design/
 import { useResponsive } from "@src/hooks/useResponsive";
 import { useSideNavStore } from "@src/store/sideNavStore";
 import { Avatar, Button, Dropdown, Layout, Menu } from "antd";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useCallback, useMemo } from "react";
 import Logo from "../assets/images/logo_dark.svg?url";
 import Home from "@src/assets/icons/home_icon.svg"
 import Job from "@src/assets/icons/job_icon.svg"
 import Profile from "@src/assets/icons/profile_icon.svg"
 import Users from "@src/assets/icons/users_icon.svg"
+import { useUserContext } from "@src/context/userContext";
 
 const { Header, Content, Sider } = Layout;
 
@@ -16,6 +17,7 @@ export const DefaultLayout = () => {
   const { collapsed, setCollapsed, toggleCollapsed } = useSideNavStore();
   const { isMobile } = useResponsive();
   const navigate = useNavigate();
+  const { logout } = useUserContext();
 
   const handleOnBreakPoint = useCallback(
     (close: boolean) => setCollapsed(close),
@@ -49,7 +51,7 @@ export const DefaultLayout = () => {
         <Menu
           mode="inline"
           defaultSelectedKeys={["home"]}
-         onClick={(e) => navigate(e.key === "home" ? "/" : `/${e.key}`)}
+          onClick={(e) => navigate(e.key === "home" ? "/" : `/${e.key}`)}
           className="[&_.ant-menu-item]:rounded-none [&_.ant-menu-item]:mx-0 [&_.ant-menu-item]:w-full
             [&_.ant-menu-item-selected]:!bg-gray-300
           "
@@ -89,9 +91,8 @@ export const DefaultLayout = () => {
   const profileMenu = (
     <Menu
       items={[
-        { key: "1", label: "Profile" },
-        { key: "2", label: "Settings" },
-        { key: "3", label: "Logout" },
+        { key: "1", label: "Profile", onClick: () => navigate("/profile") },
+        { key: "2", label: "Logout", onClick: logout },
       ]}
     />
   );
@@ -100,7 +101,9 @@ export const DefaultLayout = () => {
     <Layout className="h-screen">
       <Header className="flex items-center justify-between max-xs:px-2 border-b-2">
         {/* <Logo /> */}
-        <img src={Logo} alt="Recruiter logo" className="w-30 md:w-32 lg:w-40 h-auto" />
+        <Link to="/">
+          <img src={Logo} alt="Recruiter logo" className="w-30 md:w-32 lg:w-40 h-auto" />
+        </Link>
         <Dropdown overlay={profileMenu} placement="bottomRight" arrow>
           <Avatar
             size="large"

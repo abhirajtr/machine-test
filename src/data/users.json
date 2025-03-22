@@ -1,0 +1,32 @@
+[
+    {
+        "key": "1",
+        "name": "Lola Barr",
+        "email": "lolabarr@microsoft.ai",
+        "phone": "+1-212-456-7890",
+        "role": "Admin",
+        "status": "Active",
+        "createdOn": "20-12-2024",
+        "lastActive": "20-12-2024"
+    },
+    {
+        "key": "2",
+        "name": "Everest Glenn",
+        "email": "everestglenn@microsoft.ai",
+        "phone": "+1-212-456-7890",
+        "role": "Manager",
+        "status": "Active",
+        "createdOn": "20-12-2024",
+        "lastActive": "20-12-2024"
+    },
+    {
+        "key": "3",
+        "name": "Rosie Hendrix",
+        "email": "rhendrix@microsoft.ai",
+        "phone": "+1-212-456-7890",
+        "role": "Recruiter",
+        "status": "Active",
+        "createdOn": "20-12-2024",
+        "lastActive": "20-12-2024"
+    }
+]

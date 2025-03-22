@@ -3,9 +3,10 @@ import { Button, Checkbox, Form, FormProps, Input } from 'antd';
 import { Link } from "react-router-dom";
 import AuthLayoutSide from "@src/components/authLayoutSide";
 import SocialAuthSection from "@src/components/socialAuthSection";
+import { useUserContext } from "@src/context/userContext";
 
 type FieldType = {
-    email_address: string;
+    email: string;
     password: string;
 }
 
@@ -13,9 +14,10 @@ type FieldType = {
 const Login = () => {
 
     const [form] = Form.useForm();
+    const { login } = useUserContext();
 
     const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-        console.log('Success:', values);
+        login(values.email, values.password);
     };
 
     return (
@@ -30,7 +32,7 @@ const Login = () => {
                         className="space-y-4">
 
                         <Form.Item
-                            name="email_address"
+                            name="email"
                             rules={[
                                 { required: true, message: 'Email address is required!' },
                                 { type: 'email', message: 'Please enter a valid email address!' },
@@ -75,7 +77,7 @@ const Login = () => {
                     </div>
                     <SocialAuthSection />
                     <p>Not a customer?{" "}
-                        <Link to="/signup" className="font-semibold">Create your account</Link>
+                        <Link to="/signup" className="font-semibold hover:underline">Create your account</Link>
                     </p>
                 </div>
             </div>

@@ -3,11 +3,13 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { DefaultLayout } from "@src/layouts/default";
 import ProtectedRoute from "./protectedRoutes";
+import PublicRoute from "@src/components/publicRoute";
 
 const Home = withLoading(React.lazy(() => import("@src/pages/index")));
 const Signup = withLoading(React.lazy(() => import("@src/pages/signup")));
 const Login = withLoading(React.lazy(() => import("@src/pages/login")));
 const Users = withLoading(React.lazy(() => import("@src/pages/users")));
+const UserProfile = withLoading(React.lazy(() => import("@src/pages/userProfile")));
 
 const routes = [
   {
@@ -20,7 +22,13 @@ const routes = [
     element: <Users />,
     meta: { breadCrumb: [{ title: "Users" }] }
   },
+  {
+    path: "/profile",
+    element: <UserProfile />,
+    meta: { breadCrumb: [{ title: "Users" }] }
+  },
 ];
+
 
 const MainRoutes = () => {
   return (
@@ -37,8 +45,11 @@ const MainRoutes = () => {
             />
           ))}
         </Route>
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/signup"
+          element={<PublicRoute component={Signup} />} />
+        <Route
+          path="/login"
+          element={<PublicRoute component={Login} />} />
       </Routes>
     </>
   );
