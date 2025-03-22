@@ -7,13 +7,19 @@ import ProtectedRoute from "./protectedRoutes";
 const Home = withLoading(React.lazy(() => import("@src/pages/index")));
 const Signup = withLoading(React.lazy(() => import("@src/pages/signup")));
 const Login = withLoading(React.lazy(() => import("@src/pages/login")));
+const Users = withLoading(React.lazy(() => import("@src/pages/users")));
 
 const routes = [
   {
     path: "/",
     element: <Home />,
     meta: { breadCrumb: [{ title: "Home" }] }
-  }
+  },
+  {
+    path: "/users",
+    element: <Users />,
+    meta: { breadCrumb: [{ title: "Users" }] }
+  },
 ];
 
 const MainRoutes = () => {
